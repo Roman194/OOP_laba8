@@ -92,15 +92,6 @@ public class SongsServlet extends HttpServlet {
                 ex.printStackTrace();
             }
 
-//            try(FileWriter writer = new FileWriter(getServletContext().getRealPath(path))){
-//                writer.write(array.toString(4));
-//                writer.flush();
-//                writer.close();
-//            } catch (IOException ex){
-//                System.out.println("Error!!!");
-//                ex.printStackTrace();
-//            }
-
             doGet(req, resp);
         }
 
