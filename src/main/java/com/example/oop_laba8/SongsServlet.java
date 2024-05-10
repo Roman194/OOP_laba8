@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URISyntaxException;
+import java.util.Random;
 
 @WebServlet("/songs_table")
 public class SongsServlet extends HttpServlet {
@@ -30,8 +32,11 @@ public class SongsServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
 
+        Random rand = new Random();
+        String randValue = Integer.toString(rand.nextInt(1000));
+
         JSONObject json = new JSONObject();
-        json.put("id", "100");
+        json.put("id", randValue);
         json.put("song_name", req.getParameter("song_name"));
         json.put("author", req.getParameter("author"));
         json.put("album", req.getParameter("album"));
@@ -70,17 +75,31 @@ public class SongsServlet extends HttpServlet {
 
             System.out.println(array);
 
-//            PrintWriter writer = new PrintWriter("writeSongs");//getServletContext().getRealPath(
-//            writer.println("Texttt");
-//            writer.close();
-            try(FileWriter writer = new FileWriter(getServletContext().getRealPath(path))){
-                writer.write(json.toString(4));
+            String fullPath;
+            try {
+                fullPath = new File(SongsServlet.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getParentFile().getParent();
+                fullPath += File.separator + "src" + File.separator + "main" + File.separator + "webapp" + File.separator + "songs.json";
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+
+            try(FileWriter writer = new FileWriter(fullPath)){
+                writer.write(array.toString(4));
                 writer.flush();
                 writer.close();
             } catch (IOException ex){
-                System.out.println("Error!!!");
+                System.out.println("full Error!!!");
                 ex.printStackTrace();
             }
+
+//            try(FileWriter writer = new FileWriter(getServletContext().getRealPath(path))){
+//                writer.write(array.toString(4));
+//                writer.flush();
+//                writer.close();
+//            } catch (IOException ex){
+//                System.out.println("Error!!!");
+//                ex.printStackTrace();
+//            }
 
             doGet(req, resp);
         }

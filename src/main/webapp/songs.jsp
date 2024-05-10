@@ -11,6 +11,19 @@
     <title>Songs table</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+    <style>
+        .pricing-header {
+            max-width: 700px;
+        }
+        .table-responsive{
+            margin: 0 auto;
+            max-width: 960px;
+        }
+        .form_songs{
+            margin: 0 auto;
+            max-width: 960px;
+        }
+    </style>
 </head>
 <body>
     <script type="module">
@@ -26,8 +39,8 @@
         }
         function fillTable(response) {
             let tbody = document.querySelector("tbody");
-            let songsArray = response["songs"];
-            songsArray.forEach(object => {
+            //let songsArray = response["songs"];
+            response.forEach(object => {
                 let newSong = document.createElement("tr");
                 let name = object["song_name"];
                 let author = object["author"];
@@ -72,7 +85,7 @@
         <main>
             <h2 class="display-6 text-center mb-4">Add new song</h2>
 
-            <form method="post">
+            <form class="form_songs" method="post">
                 <div class="mb-3">
                     <label for="song_name" class="form-label">Song name</label>
                     <input type="text" class="form-control" id="song_name" name="song_name">
@@ -98,7 +111,9 @@
 
             </form>
 
-            <h2 class="display-6 text-center mb-4">All current songs from .json file</h2>
+            <p>
+                <h2 class="display-6 text-center mb-4">All current songs from .json file</h2>
+            </p>
 
             <div class="table-responsive">
                 <table class="table text-center">
@@ -123,6 +138,44 @@
                 </table>
             </div>
         </main>
+
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img class="mb-2" src="${pageContext.request.contextPath}/assets/vpn.svg" alt="" width="24" height="19">
+                    <small class="d-block mb-3 text-body-secondary">&copy; 2017–2024</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+                        <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

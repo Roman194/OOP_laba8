@@ -1,20 +1,58 @@
-{
-  "songs":[
+[
     {
-      "id": "1",
-      "song_name": "Fight the future",
-      "author": "The Anix",
-      "album": "Shadow_Movement",
-      "length": "3:59",
-      "year": "2018"
+        "year": "2018",
+        "author": "The Anix",
+        "album": "Shadow_Movement",
+        "length": "3:59",
+        "song_name": "Fight the future",
+        "id": "1"
     },
     {
-      "id": "2",
-      "song_name": "Box wine",
-      "author": "Carter tomorrow",
-      "album": "Wine night",
-      "length": "2:14",
-      "year": "2021"
+        "year": "2021",
+        "author": "Carter tomorrow",
+        "album": "Wine night",
+        "length": "2:14",
+        "song_name": "Box wine",
+        "id": "2"
+    },
+    {
+        "year": "2009",
+        "author": "Vitas",
+        "album": "Vitas The Best",
+        "length": "4:12",
+        "song_name": "Opera 2",
+        "id": "467"
+    },
+    {
+        "year": "2003",
+        "author": "The cat empire",
+        "album": "The cat empire",
+        "length": "2:19",
+        "song_name": "The lost song",
+        "id": "132"
+    },
+    {
+        "year": "2024",
+        "author": "Baby Lasagna",
+        "album": "Croatia",
+        "length": "3:00",
+        "song_name": "Rim tim tagi tim",
+        "id": "217"
+    },
+    {
+        "year": "2013",
+        "author": "Gazadores",
+        "album": "Hyperion days",
+        "length": "3:55",
+        "song_name": "American lights",
+        "id": "76"
+    },
+    {
+        "year": "2018",
+        "author": "Cloudmakers",
+        "album": "The best",
+        "length": "3:45",
+        "song_name": "The spark",
+        "id": "269"
     }
-  ]
-}
+]
